@@ -61,22 +61,7 @@ incorrecto6 = [[1.1, 0, 0, 0],
 
 
 
-def is_int(sudoku):
-
-    assert isinstance(sudoku, list)
-
-    sudokusano = True
-
-    for row in sudoku:
-        for n in row:
-            if n % 1 == 0:
-                continue
-            else:
-                sudokusano = False
-                break
-    #Postcondition
-    assert isinstance(sudokusano, bool)
-    return sudokusano
+def check_sudoku(sudoku)
               
 
 
@@ -85,20 +70,20 @@ def is_int(sudoku):
 
 # Casos test
 
-assert is_int(incorrecto1) == False
+assert check_sudoku(incorrecto1) == 
 # >>> False
 
-assert is_int(correcto) == True
+assert check_sudoku(correcto) == 
 # >>> True
 
-assert is_int(correcto2) == True
+assert check_sudoku(correcto2) == 
 # >>> False
 
-assert is_int(incorrecto3) == False
+assert check_sudoku(incorrecto3) == 
 # >>> False
 
 
-assert is_int(incorrecto5) == False
+assert check_sudoku(incorrecto5) == 
 # >>> False
 
-assert is_int(incorrecto6) == False
+assert check_sudoku(incorrecto6) == 
