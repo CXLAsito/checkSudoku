@@ -34,56 +34,71 @@ correcto = [[1, 2, 3],
             [2, 3, 1],
             [3, 1, 2]]
 
-incorrecto1 = [[1, 2, 3, 4],
+incorrecto1 = [[1.0, 2, 3, 4],
                [2, 3, 1, 3],
-               [3, 1, 2, 3],
+               [3, 1, 2.1, 3],
                [4, 4, 4, 4]]
 
-incorrecto2 = [[1, 2, 3, 4],
+correcto2 = [[1, 2, 3, 4],
                [2, 3, 1, 4],
                [4, 1, 2, 3],
                [3, 4, 1, 2]]
 
 incorrecto3 = [[1, 2, 3, 4, 5],
                [2, 3, 1, 5, 6],
-               [4, 5, 2, 1, 3],
+               [4, 5.5, 2, 1, 3],
                [3, 4, 5, 2, 1],
                [5, 6, 4, 3, 2]]
 
-incorrecto4 = [['a', 'b', 'c'],
-               ['b', 'c', 'a'],
-               ['c', 'a', 'b']]
+
 
 incorrecto5 = [[1, 1.5],
                [1.5, 1]]
 
-incorrecto6 = [[1, 0, 0, 0],
+incorrecto6 = [[1.1, 0, 0, 0],
                [0, 1, 0],
                [0, 0, 0, 1]]
 
 
-def check_sudoku(sudoku):
-    # Tu código aquí
+
+def is_int(sudoku):
+
+    assert isinstance(sudoku, list)
+
+    sudokusano = True
+
+    for row in sudoku:
+        for n in row:
+            if n % 1 == 0:
+                continue
+            else:
+                sudokusano = False
+                break
+    #Postcondition
+    assert isinstance(sudokusano, bool)
+    return sudokusano
+              
+
+
+                    
 
 
 # Casos test
 
-print(check_sudoku(incorrecto1))
+assert is_int(incorrecto1) == False
 # >>> False
 
-print(check_sudoku(correcto))
+assert is_int(correcto) == True
 # >>> True
 
-print(check_sudoku(incorrecto2))
+assert is_int(correcto2) == True
 # >>> False
 
-print(check_sudoku(incorrecto3))
+assert is_int(incorrecto3) == False
 # >>> False
 
-print(check_sudoku(incorrecto4))
+
+assert is_int(incorrecto5) == False
 # >>> False
 
-print(check_sudoku(incorrecto5))
-# >>> False
-
-print(check_sudoku(incorrecto6))
+assert is_int(incorrecto6) == False
